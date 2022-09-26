@@ -2,7 +2,8 @@
 const inquirer = require('inquirer');
 const fse = require('fs-extra');
 const jest = require('jest');
-const path = require('path')
+const path = require('path');
+const buildteam = require('./src/page.template');
 
 
 
@@ -11,22 +12,15 @@ const path = require('path')
 const workerInfo = () => {
     return inquirer.prompt([
     {
-        type: 'list',
-        message: 'What is your current position?',
+        type: 'choice',
+        message: 'Would you like to add one of the following?',
         name: 'position',
-        choices: ['Manager', 'Engineer', 'Intern']
+        choices: ['Engineer', 'Intern', 'done adding new employees']
     },
     {
         type: 'input',
         name: 'github',
         message: 'If Engineer please enter GitHub username.',
-        // when: ({employee}) => {
-        //     if (employee === 'Engineer') {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
     },
     {
         type: 'input',

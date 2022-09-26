@@ -1,3 +1,14 @@
+const buildteam = (team) => {
+  //create functionality that will handle card html creation per employee
+
+
+  //loops through team array and if object in array is a manager, engineer, or intern
+    //if manager create manage card, if engineer, create eng card, if intern create int card
+
+}
+
+const empty = []
+//overall layout
 const cardPage = function(teamMembers) {
     return `
     <!DOCTYPE html>
@@ -25,3 +36,6 @@ const cardPage = function(teamMembers) {
 
 `
 }
+
+
+module.exports = buildteam();
