@@ -3,7 +3,7 @@ const Intern = require("../lib/Intern");
 test("Set school", () => {
     const testValue = "UND";
     const e = new Intern("Leonardo", 1, "leoninja4@test.com", testValue);
-    expect(e.github).toBe(testValue);
+    expect(e.school).toBe(testValue);
     });
 
 test("getRole()", () => {

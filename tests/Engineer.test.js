@@ -3,7 +3,7 @@ const Engineer = require("../lib/Engineer");
 test("Set up Github", () => {
     const testValue = "GitHub User";
     const e = new Engineer("Leonardo", 1, "leoninja4@test.com", testValue);
-    expect(e.github).toBe(testValue);
+    expect(e.gitUsername).toBe(testValue);
     });
 
 test("Set up Github", () => {

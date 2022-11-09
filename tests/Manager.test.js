@@ -4,7 +4,7 @@ const Employee = require("../lib/Employee");
 test("Set office number", () => {
     const testValue = "25";
     const e = new Manager("Leonardo", 1, "leoninja4@test.com", testValue);
-    expect(e.github).toBe(testValue);
+    expect(e.officeNumber).toBe(testValue);
     });
 
 test("getRole() to grab manager role", () => {
