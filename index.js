@@ -3,7 +3,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
-const fse = require('fs-extra');
+const fs = require('fs');
 const jest = require('jest');
 const path = require('path');
 const render = require('./src/page.template.js');
@@ -41,7 +41,7 @@ function appMenu() {
             addIntern();
             break;
           default:
-            createTeam();
+            buildTeam();
         }
       });
     }
@@ -245,8 +245,14 @@ function appMenu() {
           createTeam();
         });
     }
-
   createTeam();
+}
+
+function buildTeam () {
+  const htmlTemplate = render(teamMembers)
+  fs.writeFile("./dist/index.html", htmlTemplate, (err) => {
+    if (err) throw new Error("Error creating your page, try again later.", err)
+  })
 }
 
 appMenu();

@@ -1,13 +1,26 @@
-const buildteam = (team) => {
-  //create functionality that will handle card html creation per employee
+const Manager = require("../lib/Manager")
 
+const buildTeam = (team) => {
+  const cards = []
+  console.log(team)
+  console.log(team)
+  
+  //create functionality that will handle card html creation per employee
+  for (let i = 0; i < team.length; i++) {
+    if (team[i].getRole() === "Manager") {
+      console.log(team)
+      var managerCard = `<h1>${team[i].Manager.name}</h1>`
+      cards.push(managerCard)      
+    }
+   
+  }
 
   //loops through team array and if object in array is a manager, engineer, or intern
     //if manager create manage card, if engineer, create eng card, if intern create int card
-
+cardPage(cards) 
 }
 
-const empty = []
+
 //overall layout
 const cardPage = function(teamMembers) {
     return `
@@ -30,6 +43,8 @@ const cardPage = function(teamMembers) {
     <body>
       <div class="row">
        ${teamMembers}
+       
+       <h3>${Manager.name}</h3>
       </div>
     </body>
     </html>
@@ -38,4 +53,4 @@ const cardPage = function(teamMembers) {
 }
 
 
-module.exports = buildteam();
+module.exports = buildTeam;
