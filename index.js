@@ -3,7 +3,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
-const fs = require('fs');
+const fs = require('fs/promises');
 const jest = require('jest');
 const path = require('path');
 const render = require('./src/page.template.js');
@@ -249,7 +249,7 @@ function appMenu() {
 }
 
 function buildTeam () {
-  const htmlTemplate = render(teamMembers)
+  const htmlTemplate = JSON.stringify(render(teamMembers))
   fs.writeFile("./dist/index.html", htmlTemplate, (err) => {
     if (err) throw new Error("Error creating your page, try again later.", err)
   })

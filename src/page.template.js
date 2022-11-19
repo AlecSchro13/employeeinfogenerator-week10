@@ -1,28 +1,37 @@
+const Employee = require("../lib/Employee")
 const Manager = require("../lib/Manager")
 
 const buildTeam = (team) => {
   const cards = []
-  console.log(team)
-  console.log(team)
   
   //create functionality that will handle card html creation per employee
-  for (let i = 0; i < team.length; i++) {
-    if (team[i].getRole() === "Manager") {
-      console.log(team)
-      var managerCard = `<h1>${team[i].Manager.name}</h1>`
-      cards.push(managerCard)      
-    }
-   
-  }
+  // for (let i = 0; i < team.length; i++) {
+  //   console.log(team[i])
+  //   if (team[i].getRole() === "Manager") {
+  //     console.log(team)
+  //     var managerCard = `<h1>${team[i].getName()}</h1>`
+  //     cards.push(managerCard)      
+  //   }
+   const buildManager = (manager) => {
+    return `
+      <div>
+        <h1>${manager.getName()}</h1>
+      </div>
+    `
+   }
 
+   cards.push(team.filter((employee, i) => employee.getRole() === "Manager").map((manager) => buildManager(manager)).join(""));
+
+  // }
+  return cards.join("");
   //loops through team array and if object in array is a manager, engineer, or intern
     //if manager create manage card, if engineer, create eng card, if intern create int card
-cardPage(cards) 
+// cardPage(cards) 
 }
 
 
 //overall layout
-const cardPage = function(teamMembers) {
+const cardPage = (teamMembers) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -42,9 +51,9 @@ const cardPage = function(teamMembers) {
     
     <body>
       <div class="row">
-       ${teamMembers}
+       ${buildTeam(teamMembers)}
        
-       <h3>${Manager.name}</h3>
+       
       </div>
     </body>
     </html>
