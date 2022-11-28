@@ -45,8 +45,25 @@ const buildTeam = (team) => {
     `
   }
 
+  const buildIntern = (intern) => {
+    return `
+      <div class = "card">
+      <div class = "card-header">
+        <h1 class = "card-title">Name: ${intern.getName()}</h1>
+        <h3 class = "card-title">Position: ${intern.getRole()}</h3>
+      </div>
+      <div class = "card-body">
+      <p>ID: ${intern.getId()}</p>
+      <p>Github Username: ${intern.getGithub()}</p>
+      <p>Email: ${intern.getEmail()}</p>
+      </div>
+      </div>
+    `
+  }
+
   cards.push(team.filter((employee, i) => employee.getRole() === "Manager").map((manager) => buildManager(manager)));
   cards.push(team.filter((employee, i) => employee.getRole() === "Engineer").map((engineer) => buildEngineer(engineer)));
+  cards.push(team.filter((employee, i) => employee.getRole() === "Intern").map((intern) => buildIntern(intern)));
   // }
   return cards.join("");
   //loops through team array and if object in array is a manager, engineer, or intern
